@@ -88,7 +88,7 @@ h2 {
    an opportunity for such a synergy and to foster collaboration between the participants. Participation in the workshop is by invitation only.
    The workshop follows a tradition of workshops on related topics; see, e.g., <a href="https://forsyte.at/events/frida2016/">FRIDA 2016 </a> held in Marrakech, Morocco,
     <a href="https://www.irif.fr/~abou/netys/">CCDP 2015</a> held in Agadir, Morocco, and <a href="http://netys.net/VDS2018.html">VDS'18</a> held in Essaouira, Morocco.
-<br>
+<br><br>
 <a name="topics"><h3>Topics of interest</h3></a>
 A central theme of the workshop will be the issue of correctness in the development of performant concurrent and distributed systems.
 In this workshop, we would like to explore the different correctness notions that are used in this context and to understand the relationship between them.
@@ -119,30 +119,30 @@ Participants to the workshop must register using the procedure for <a href="http
 <br><br>
 <a name="participants"><h3>List of Participants</h3></a>
 <ul style="list-style-type:circle;">
-<li> Faouzi Atig (Uppsala University, Sweden)</li>
-<li> Constantin Enea (University of Paris 7, France)</li>
-<li> Vincent Gramoli (The University of Sydney, Australia)</li>
-<li> Maria Potop-Butucaru (University of Paris 6, France)</li>
-<li> Suresh Jagannathan (Purdue University, USA)</li>
-<li> Akash Lal (Microsoft Research)</li>
-<li> Roland Meyer (Institute of Theoretical Computer Science, Germany)</li>
-<li> Marc Shapiro (University of Paris 6, France) </li>
-<li> Arnaud Sangnier, (University of Paris 7, France)</li>
-<li> Pierre Sutra, (Telecom SudParis, France)</li>
-<li> Christoph Kirsch, (University of Salzburg, Austria)</li>
-<li> Damien Zufferey (Max Plank Institute Kaiserslautern, Germany)</li>
-<li> Azaalea Raad, (Max Plank Institute Kaiserslautern, Germany)</li>
-<li> Andreas Podelski (University of Freiburg, Germany) </li>
-<li> Ahmed Bouajjani (University of Paris 7, France) </li>
-<li> Igor Konnov  (INRIA Nancy, France) </li>
-<li> Genaro Parlato (University of Southampton, UK)</li>
-<li> Josef Widder (TU Wien, Austria) </li>
-<li> Sebastian Wolff (Institute of Theoretical Computer Science, Germany)</li>
-<li> Giorgio Delzanno (University of Genova, Italy)</li>
 <li> Parosh Abdulla (Uppsala University, Sweden)</li>
+<li> Faouzi Atig (Uppsala University, Sweden)</li>
+<li> Ahmed Bouajjani (University of Paris 7, France) </li>
+<li> Giorgio Delzanno (University of Genova, Italy)</li>
+<li> <a href="#enea">Constantin Enea</a> (University of Paris 7, France)</li>
 <li> Carla Ferreira (University of Lisbon)</li>
+<li> <a href="#gotsman">Alexey Gotsman</a> (Imdea Software, Madrid)</li>
+<li> Vincent Gramoli (The University of Sydney, Australia)</li>
+<li> Suresh Jagannathan (Purdue University, USA)</li>
+<li> <a href="#konnov">Igor Konnov</a>  (INRIA Nancy, France) </li>
+<li> Akash Lal (Microsoft Research)</li>
 <li> Giuliano Losa (Galois, USA)</li>
-<li> Kedar Namjoshi (Nokia, USA) </li>
+<li> Roland Meyer (TU Braunschweig, Germany)</li>
+<li> <a href="#namjoshi">Kedar Namjoshi</a> (Nokia, USA) </li>
+<li> Genaro Parlato (University of Southampton, UK)</li>
+<li> Maria Potop-Butucaru (University of Paris 6, France)</li>
+<li> Andreas Podelski (University of Freiburg, Germany) </li>
+<li> Azaalea Raad, (Max Plank Institute Kaiserslautern, Germany)</li>
+<li> Marc Shapiro (University of Paris 6, France) </li>
+<li> <a href="#sagnier">Arnaud Sangnier</a>, (University of Paris 7, France)</li>
+<li> Pierre Sutra, (Telecom SudParis, France)</li>
+<li> Josef Widder (TU Wien, Austria) </li>
+<li> <a href="#wolff"> Sebastian Wolff </a> (TU Braunschweig, Germany)</li>
+<li> Damien Zufferey (Max Plank Institute Kaiserslautern, Germany)</li>
 </ul>
 
 <br><br>
@@ -150,7 +150,139 @@ Participants to the workshop must register using the procedure for <a href="http
 TBD
 <br><br>
 <a name="abstracts"><h3>Abstracts</h3></a>
-TBD
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <a name="enea"> <h5>Constantin Enea</h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title"> On the Complexity of Checking Transactional Consistency </h6>
+    <p class="card-text">
+      Transactions simplify concurrent programming by enabling computations on shared data that are isolated from other concurrent computations and resilient to failures.
+      Modern databases provide different consistency models for transactions corresponding to different tradeoffs between consistency and availability.
+      In this work, we investigate the problem of checking whether a given execution of a transactional database adheres to some consistency model.
+      We show that consistency models like read committed, read atomic, and causal consistency are polynomial time checkable while prefix consistency and snapshot isolation are NP-complete in general.
+      These results complement a previous NP-completeness result concerning serializability.
+      Moreover, in the context of NP-complete consistency models, we devise algorithms which are polynomial time assuming that certain parameters in the input executions, e.g., the number of sessions, are fixed.
+      We evaluate the scalability of these algorithms in the context of several production databases.
+</p>
+  </div>
+</div>
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <a name="gotsman"> <h5>Alexey Gotsman</h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">Atomic Transaction Commit for Modern Data Stores </h6>
+    <p class="card-text">
+      Modern data stores often need to provide both high scalability and strong transactional semantics.
+      They achieve scalability by partitioning data into shards and fault-tolerance by replicating each shard across several servers.
+      A key component of such systems is the protocol for atomically committing a transaction spanning multiple shards,
+      which is usually integrated with concurrency control.
+      Unfortunately, the classical theory of atomic commit is too restrictive to capture the complexities of such protocols.
+      I will present a new problem statement for atomic commit that more faithfully reflects modern requirements and will describe solutions to this problem in different classes of data stores.
+      <br><br>
+      This is joint work with Manuel Bravo (IMDEA) and Gregory Chockler (Royal Holloway, University of London).</p>
+  </div>
+</div>
+
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <a name="konnov"> <h5> Igor Konnov </h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title"> Making TLA+ model checking symbolic </h6>
+    <p class="card-text">
+      TLA+ is a language for formal specification of all kinds of computer systems.
+System designers use this language to specify concurrent, distributed, and
+fault-tolerant protocols, which are traditionally presented in pseudo-code.
+TLA+ is extremely concise yet expressive: The language primitives include
+Booleans, integers, functions, tuples, records, sequences, and sets thereof,
+which can be also nested.  This is probably why the only model checker for TLA+
+(called TLC) relies on explicit enumeration of values and states.
+
+In this talk, we present a first symbolic model checker for TLA+. Like TLC,
+it assumes that all specification parameters are fixed and all states are
+finite structures. Unlike TLC, our model checker translates the underlying
+transition relation into quantifier-free SMT constraints, which allows us to
+exploit the power of SMT solvers.
+<br><br>
+  Joint work with Jure Kukovec and Thanh Hai Tran (TU Wien, Austria).</p>
+  </div>
+</div>
+
+<br><br>
+
+<div class="card">
+  <div class="card-header">
+    <a name="namjoshi"> <h5>Kedar Namjoshi</h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">Model Checking in Bits and Pieces </h6>
+    <p class="card-text">
+  State explosion is the central, fundamental obstacle to fully automated verification of distributed protocols.
+  Modular verification methods are one way of ameliorating this problem.
+  These methods side-step state explosion by reasoning locally and separately about each component of a program, subsequently combining those local results into a global proof.
+  Although approximate, localized reasoning is often surprisingly effective, especially when a program is built out of "loosely coupled" components.
+  For distributed protocols, which are typically composed of isomorphic processes, a recently developed notion of neighborhood symmetry further simplifies the task of modular reasoning.
+  The symmetries also make it easier to construct a modular correctness proof for _all_ (i.e., an unbounded number of) instances of a protocol, by generalizing from modular proofs that are automatically constructed for small-scale instances.
+  In the talk, I will also touch upon less understood but important questions about the scope of modular verification methods, and the potential for automatic synthesis of modularly-correct protocols from specifications of their behavior.
+
+ </p>
+  </div>
+</div>
+
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <a name="sagnier"> <h5>Arnaud Sangnier</h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">Deciding the existence of cut-off in rendez-vous networks </h6>
+    <p class="card-text">
+      In networks of processes where the communication is performed by
+rendez-vous and the number of processes is a parameter, it is not
+always  possible to find a cut-off, i.e. a minimal number of processes,
+which guarantees that the behavior of the network is correct. We show
+that for some reachability objective requiring all the processes to end
+in some specific states, the existence of a cut-off is a decidable
+problem and we provide algorithms to solve it for different hypothesis
+on the rendez-vous communication and on the presence of a leader in the
+network. </p>
+  </div>
+</div>
+
+<br><br>
+<div class="card">
+  <div class="card-header">
+    <a name="wolff"> <h5>Sebastian Wolff</h5></a>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title"> Decoupling Lock-Free Data Structures from Memory Reclamation for Static Analysis </h6>
+    <p class="card-text">
+      Verification of concurrent data structures is one of the most challenging tasks in software verification.
+      The topic has received considerable attention over the course of the last decade.
+      Nevertheless, human-driven techniques remain cumbersome and notoriously difficult while automated approaches suffer from limited applicability.
+      The main obstacle for automation is the complexity of concurrent data structures.
+      This is particularly true in the absence of garbage collection.
+      The intricacy of lock-free memory management paired with the complexity of concurrent data structures makes automated verification prohibitive.
+      In this work we present a method for verifying concurrent data structures and their memory management separately.
+      We suggest two simpler verification tasks that imply the correctness of the data structure.
+      The first task establishes an over-approximation of the reclamation behavior of the memory management.
+      The second task exploits this over-approximation to verify the data structure without the need to consider the implementation of the memory management itself.
+      To make the resulting verification tasks tractable for automated techniques, we establish a second result.
+      We show that a verification tool needs to consider only executions where a single memory location is reused.
+      We implemented our approach and were able to verify linearizability of Michael&Scott's queue and the DGLM queue for both hazard pointers and epoch-based reclamation.
+      To the best of our knowledge, we are the first to verify such implementations fully automatically. </p>
+  </div>
+</div>
+
+
+
+
+
 <br><br>
 Photo by <a href="https://unsplash.com/photos/75evqcCk8BQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Annie Spratt</a>.
 </div>
